@@ -1,8 +1,11 @@
 import Home from "./components/Home";
+import { GeneralContextProvider } from "./components/GeneralContext";
 
 function App(){
   return (
-   <Home />
+   <GeneralContextProvider>
+      <Home />
+    </GeneralContextProvider>
   )
 }
 
