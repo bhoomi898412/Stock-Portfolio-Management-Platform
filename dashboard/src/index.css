@@ -259,6 +259,10 @@ code {
   justify-content: space-between;
 }
 
+.menu-container a {
+  text-decoration: none;
+}
+
 .logo {
   width: 30px;
   height: 20px;
@@ -840,4 +844,85 @@ hr {
 
 .action:hover {
   background-color: rgb(212, 212, 212);
+}
+
+.orders {
+  padding: 30px;
+  background: #f5f7fb;
+}
+
+/* GRID = 2 column */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.order-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: 0.2s;
+}
+
+/* hover effect */
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* TOP */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-top h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* MODE */
+.card-top span {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* COLORS */
+.buy {
+  background: #e6f9f0;
+  color: #2ecc71;
+}
+
+.sell {
+  background: #fdecea;
+  color: #e74c3c;
+}
+
+/* BOTTOM */
+.card-bottom {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-bottom p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* PRICE */
+.price {
+  font-weight: 600;
+  font-size: 15px;
 }
