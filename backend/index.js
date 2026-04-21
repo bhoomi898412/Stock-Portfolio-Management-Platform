@@ -17,10 +17,21 @@ const url = process.env.MONGO_URL;
 
 const app = express();
 
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  process.env.DASHBOARD_URL,
+  "http://localhost:3000",
+  "http://localhost:5173",
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:5173"],
-    // methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   })
 );

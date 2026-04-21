@@ -1,3 +1,6 @@
+const API_URL = process.env.REACT_APP_API_URL;
+const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL;
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -32,7 +35,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/auth/login",
+        `${API_URL}/auth/login`,
         {
           ...inputValue,
         },

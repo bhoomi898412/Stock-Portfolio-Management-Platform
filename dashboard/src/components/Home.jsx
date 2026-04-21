@@ -1,3 +1,6 @@
+const LOGIN_URL = import.meta.env.VITE_LOGIN_URL;
+const API_URL = import.meta.env.VITE_API_URL;
+
 import React, { useEffect, useState } from "react";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
@@ -12,7 +15,7 @@ const Home = () => {
     const verifyUser = async () => {
       try {
         const { data } = await axios.post(
-          "http://localhost:3002/auth/verify",
+          `${API_URL}/auth/verify`,
           {},
           { withCredentials: true }
         );

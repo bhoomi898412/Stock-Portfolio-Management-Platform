@@ -1,3 +1,5 @@
+const API_URL = process.env.REACT_APP_API_URL;
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -14,7 +16,7 @@ const Home = () => {
         navigate("/login");
       }
       const { data } = await axios.post(
-        "http://localhost:3002/auth/verify",
+        `${API_URL}/auth/verify`,
         {},
         { withCredentials: true }
       );
