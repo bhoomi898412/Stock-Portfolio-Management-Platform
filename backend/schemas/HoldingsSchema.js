@@ -1,6 +1,6 @@
-const {Schema} = require("mongoose");
+const mongoose = require("mongoose");
 
-const HoldingsSchema = new Schema({
+const HoldingsSchema = new mongoose.Schema({
     name: String,
     qty: Number,
     avg: Number,
@@ -10,4 +10,4 @@ const HoldingsSchema = new Schema({
     isLoss: Boolean,
 });
 
-module.exports = {HoldingsSchema};
+module.exports = HoldingsSchema;

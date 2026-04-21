@@ -4,17 +4,30 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const authRoute = require("./Routes/AuthRoute");
 
-const {HoldingsModel} = require("./model/HoldingsModel");
-const {OrdersModel} = require("./model/OrdersModel");
-const {PositionsModel} = require("./model/PositionsModel");
+const UserModel = require("./model/UserModel");
+const HoldingsModel = require("./model/HoldingsModel");
+const OrdersModel = require("./model/OrdersModel");
+const PositionsModel = require("./model/PositionsModel");
 
 const PORT = process.env.PORT || 3002;
 const url = process.env.MONGO_URL;
 
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
+
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:5173"],
+    // methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
+app.use(cookieParser());
+app.use(express.json());
+app.use("/auth", authRoute);
 
 // app.get('/addHoldings' , async(req , res) => {
 //     let tempHoldings = [
@@ -345,12 +358,15 @@ app.post('/newOrder', async (req, res) => {
   res.send("Order + Holding updated");
 });
 
-mongoose.connect(url)
+mongoose.connect(url) // Ab options (useNewUrlParser etc.) ki zaroorat nahi hai
   .then(() => {
-    console.log("DB connected");
+    console.log("✅ DB connected successfully");
     app.listen(PORT, () => {
-      console.log("Server started");
+      console.log(`🚀 Server started on port ${PORT}`);
     });
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    console.error("❌ DB Connection Error:", err);
+  });
+
 
