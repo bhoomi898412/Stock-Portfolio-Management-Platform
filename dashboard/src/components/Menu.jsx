@@ -63,11 +63,6 @@ const Menu = () => {
         <hr />
 
         <div className="profile-actions">
-          <div className="profile">
-            <div className="avatar">ZU</div>
-            <p className="username">USERID</p>
-          </div>
-
           <button className="logout-btn" onClick={handleLogout}>
             Logout
           </button>
