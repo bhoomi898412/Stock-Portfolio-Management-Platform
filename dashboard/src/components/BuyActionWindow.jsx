@@ -14,22 +14,18 @@ const BuyActionWindow = ({ uid , mode }) => {
 
   const handleBuyClick = async  () => {
     try {
-    await axios.post(`${API_URL}/newOrder`, {
-      name: uid,
-      qty: stockQuantity,
-      price: stockPrice,
-      mode: mode,
-    });
+      await axios.post(`${API_URL}/newOrder`, {
+        name: uid,
+        qty: stockQuantity,
+        price: stockPrice,
+        mode: mode,
+      });
 
-    closeWindow();
-
-  } catch (err) {
-    // 👇 SAFE handling
-    const msg =
-      err.response?.data || "Something went wrong";
-
-    alert(msg);
-  }
+      closeWindow();
+    } catch (err) {
+      const msg = err.response?.data || "Something went wrong";
+      alert(msg);
+    }
   };
 
   return (
