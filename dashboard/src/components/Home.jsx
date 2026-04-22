@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <>
       <TopBar username={username} />
-      <Dashboard />
+      <Dashboard username={username} />
     </>
   );
 };

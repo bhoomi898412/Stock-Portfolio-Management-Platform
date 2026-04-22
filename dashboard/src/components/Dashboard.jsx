@@ -3,30 +3,29 @@ import { Route, Routes } from "react-router-dom";
 
 import Funds from "./Funds";
 import Holdings from "./Holdings";
-import {GeneralContextProvider}  from "./GeneralContext";
-
+import { GeneralContextProvider } from "./GeneralContext";
 import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
 
-const Dashboard = () => {
+const Dashboard = ({ username }) => {
   return (
     <GeneralContextProvider>
-  <div className="dashboard-container">
-    <WatchList />
+      <div className="dashboard-container">
+        <WatchList />
 
-    <div className="content">
-      <Routes>
-        <Route path="/" element={<Summary />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/holdings" element={<Holdings />} />
-        <Route path="/positions" element={<Positions />} />
-        <Route path="/funds" element={<Funds />} />
-      </Routes>
-    </div>
-  </div>
-</GeneralContextProvider>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Summary username={username} />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/holdings" element={<Holdings />} />
+            <Route path="/positions" element={<Positions />} />
+            <Route path="/funds" element={<Funds />} />
+          </Routes>
+        </div>
+      </div>
+    </GeneralContextProvider>
   );
 };
 
