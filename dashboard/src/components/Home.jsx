@@ -1,12 +1,10 @@
-const LOGIN_URL = import.meta.env.VITE_LOGIN_URL;
-const API_URL = import.meta.env.VITE_API_URL;
-
 import React, { useEffect, useState } from "react";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
 import axios from "axios";
 
-const LOGIN_URL = "http://localhost:3000/login";
+const LOGIN_URL = import.meta.env.VITE_LOGIN_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Home = () => {
   const [isVerified, setIsVerified] = useState(false);
