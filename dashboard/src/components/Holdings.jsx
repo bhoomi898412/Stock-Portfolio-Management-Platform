@@ -1,15 +1,15 @@
-const API_URL = import.meta.env.VITE_API_URL;
 import React , { useState , useEffect } from "react";
-// import { holdings } from "../data/data";
 import axios from "axios";
 import { VerticalGraph } from "./VerticalGraph";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Holdings = () => {
 
   const [allHoldings , setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("${API_URL}/allHoldings").then((res) => {
+    axios.get(`${API_URL}/allHoldings`).then((res) => {
       console.log(res.data);
       setAllHoldings(res.data);
     })

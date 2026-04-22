@@ -1,13 +1,14 @@
-const API_URL = import.meta.env.VITE_API_URL;
 import React , { useState , useEffect } from "react";
 // import { positions } from "../data/data";
 import axios from "axios";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Positions = () => {
   const [allPositions , setAllPositions] = useState([]);
 
   useEffect(() => {
-      axios.get("`${API_URL}/allPositions").then((res) => {
+      axios.get(`${API_URL}/allPositions`).then((res) => {
         console.log(res.data);
         setAllPositions(res.data);
       })
