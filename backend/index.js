@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 3002;
 const url = process.env.MONGO_URL;
 
 const app = express();
+app.set("trust proxy", 1);
 
 const allowedOrigins = [
   process.env.FRONTEND_URL,
