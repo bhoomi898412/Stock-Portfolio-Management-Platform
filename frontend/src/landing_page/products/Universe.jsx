@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Universe() {
+    const navigate = useNavigate();
+
     return ( 
         <div className="container">
             <div className="row text-center">
@@ -31,7 +34,7 @@ function Universe() {
                     <img src="media/images/dittoLogo.png" style={{height:"40%", width:"30%"}}></img>
                     <p className="text-small text-muted p-2">Insurance</p>
                 </div>
-                <button className="btn btn-primary mb-5 fs-5 p-2" style={{width:"20%", margin:"0 auto"}}>Signup Now</button>
+                <button className="btn btn-primary mb-5 fs-5 p-2" onClick={() => navigate("/signup")} style={{width:"20%", margin:"0 auto"}}>Signup Now</button>
             </div>
         </div>
      );

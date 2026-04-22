@@ -20,7 +20,8 @@ function Hero() {
                         <div className="col"><a href="">Kite user manual</a></div>
                     </div>
                 </div>
-                <div className="col-6 p-5">
+                <div className="col-1"></div>
+                <div className="col-5 p-5">
                     <h1 className="fs-3">Featured</h1>
                     <ol>
                         <li>

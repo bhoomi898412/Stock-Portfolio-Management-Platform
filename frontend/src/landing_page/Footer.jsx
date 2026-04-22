@@ -85,7 +85,7 @@ function Footer() {
           </p>
         </div>
 
-        <div className="container">
+        <div className="container mt-5 mb-3">
             <div className="row" style={{ fontSize: "14px" }}>
                 <div className="col"></div>
                 <div className="col">
