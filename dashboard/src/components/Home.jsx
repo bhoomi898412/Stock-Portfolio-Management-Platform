@@ -15,7 +15,7 @@ const Home = () => {
         const { data } = await axios.post(
           `${API_URL}/auth/verify`,
           {},
-          { withCredentials: true }
+          { withCredentials: true } 
         );
 
         if (!data.status) {

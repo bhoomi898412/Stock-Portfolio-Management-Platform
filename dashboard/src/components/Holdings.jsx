@@ -1,3 +1,4 @@
+const API_URL = import.meta.env.VITE_API_URL;
 import React , { useState , useEffect } from "react";
 // import { holdings } from "../data/data";
 import axios from "axios";
@@ -8,7 +9,7 @@ const Holdings = () => {
   const [allHoldings , setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:3002/allHoldings").then((res) => {
+    axios.get("${API_URL}/allHoldings").then((res) => {
       console.log(res.data);
       setAllHoldings(res.data);
     })
