@@ -24,7 +24,7 @@ const Home = () => {
           return;
         }
 
-        setUsername(data.user || "USERID");
+        setUsername(data.user || "User");
         setIsVerified(true);
       } catch (err) {
         window.location.href = LOGIN_URL;
@@ -40,7 +40,7 @@ const Home = () => {
 
   return (
     <>
-      <TopBar username={username} />
+      <TopBar />
       <Dashboard username={username} />
     </>
   );
