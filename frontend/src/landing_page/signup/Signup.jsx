@@ -7,8 +7,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "./Signup.css";
 
-const DASHBOARD_URL = "http://localhost:5173/";
-
 const Signup = () => {
   const [inputValue, setInputValue] = useState({
     email: "",

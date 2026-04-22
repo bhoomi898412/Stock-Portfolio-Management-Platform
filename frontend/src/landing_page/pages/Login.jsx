@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-const DASHBOARD_URL = "http://localhost:5173/";
-
 const Login = () => {
   const [inputValue, setInputValue] = useState({
     email: "",
