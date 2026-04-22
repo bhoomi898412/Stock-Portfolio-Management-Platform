@@ -926,3 +926,24 @@ hr {
   font-weight: 600;
   font-size: 15px;
 }
+.profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 20px;
+}
+
+.logout-btn {
+  border: 1px solid rgb(245, 104, 52);
+  background: white;
+  color: rgb(245, 104, 52);
+  font-size: 0.78rem;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: rgb(245, 104, 52);
+  color: white;
+}

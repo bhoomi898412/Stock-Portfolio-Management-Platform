@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+
+const API_URL = import.meta.env.VITE_API_URL;
+const LOGIN_URL = import.meta.env.VITE_LOGIN_URL;
 
 const Menu = () => {
-  const [isProfileDropdownOpen , setIsProfileDropdownOpen] = useState(false);
-
-  const handleProfileClick = () => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
-  };
-
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(
+        `${API_URL}/auth/logout`,
+        {},
+        { withCredentials: true }
+      );
+    } catch (error) {
+      console.error("Logout failed", error);
+    } finally {
+      window.location.href = LOGIN_URL;
+    }
+  };
 
   return (
     <div className="menu-container">
@@ -17,33 +29,32 @@ const Menu = () => {
 
       <div className="menus">
         <ul>
-
           <li>
-            <NavLink to="/" className={({isActive}) => isActive ? activeMenuClass : menuClass}>
+            <NavLink to="/" className={({ isActive }) => isActive ? activeMenuClass : menuClass}>
               Dashboard
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/orders" className={({isActive}) => isActive ? activeMenuClass : menuClass}>
+            <NavLink to="/orders" className={({ isActive }) => isActive ? activeMenuClass : menuClass}>
               Orders
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/holdings" className={({isActive}) => isActive ? activeMenuClass : menuClass}>
+            <NavLink to="/holdings" className={({ isActive }) => isActive ? activeMenuClass : menuClass}>
               Holdings
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/positions" className={({isActive}) => isActive ? activeMenuClass : menuClass}>
+            <NavLink to="/positions" className={({ isActive }) => isActive ? activeMenuClass : menuClass}>
               Positions
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/funds" className={({isActive}) => isActive ? activeMenuClass : menuClass}>
+            <NavLink to="/funds" className={({ isActive }) => isActive ? activeMenuClass : menuClass}>
               Funds
             </NavLink>
           </li>
@@ -51,13 +62,16 @@ const Menu = () => {
 
         <hr />
 
-        <div className="profile" onClick={handleProfileClick}>
-          <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+        <div className="profile-actions">
+          <div className="profile">
+            <div className="avatar">ZU</div>
+            <p className="username">USERID</p>
+          </div>
+
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
-
-        {isProfileDropdownOpen && <div>Dropdown</div>}
-
       </div>
     </div>
   );
