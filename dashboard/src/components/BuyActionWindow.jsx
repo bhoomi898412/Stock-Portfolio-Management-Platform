@@ -1,11 +1,10 @@
 import React, { useState , useContext } from "react";
 import { Link } from "react-router-dom";
-
 import axios from "axios";
-
 import GeneralContext from "./GeneralContext";
-
 import "./BuyActionWindow.css";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 const BuyActionWindow = ({ uid , mode }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
@@ -15,7 +14,7 @@ const BuyActionWindow = ({ uid , mode }) => {
 
   const handleBuyClick = async  () => {
     try {
-    await axios.post("http://127.0.0.1:3002/newOrder", {
+    await axios.post(`${API_URL}/newOrder`, {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
