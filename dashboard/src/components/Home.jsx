@@ -8,6 +8,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const Home = () => {
   const [isVerified, setIsVerified] = useState(false);
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     const verifyUser = async () => {
@@ -15,7 +16,7 @@ const Home = () => {
         const { data } = await axios.post(
           `${API_URL}/auth/verify`,
           {},
-          { withCredentials: true } 
+          { withCredentials: true }
         );
 
         if (!data.status) {
@@ -23,6 +24,7 @@ const Home = () => {
           return;
         }
 
+        setUsername(data.user || "USERID");
         setIsVerified(true);
       } catch (err) {
         window.location.href = LOGIN_URL;
@@ -38,7 +40,7 @@ const Home = () => {
 
   return (
     <>
-      <TopBar />
+      <TopBar username={username} />
       <Dashboard />
     </>
   );

@@ -4,8 +4,9 @@ import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const LOGIN_URL = import.meta.env.VITE_LOGIN_URL;
+const FRONTEND_URL = LOGIN_URL.replace(/\/login\/?$/, "");
 
-const Menu = () => {
+const Menu = ({ username }) => {
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
 
@@ -19,7 +20,7 @@ const Menu = () => {
     } catch (error) {
       console.error("Logout failed", error);
     } finally {
-      window.location.href = LOGIN_URL;
+      window.location.href = FRONTEND_URL;
     }
   };
 
@@ -63,6 +64,11 @@ const Menu = () => {
         <hr />
 
         <div className="profile-actions">
+          <div className="profile">
+            <div className="avatar">ZU</div>
+            <p className="username">{username || "USERID"}</p>
+          </div>
+
           <button className="logout-btn" onClick={handleLogout}>
             Logout
           </button>
