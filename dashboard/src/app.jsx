@@ -3,7 +3,7 @@ import { GeneralContextProvider } from "./components/GeneralContext";
 
 function App(){
   return (
-   <GeneralContextProvider>
+    <GeneralContextProvider>
       <Home />
     </GeneralContextProvider>
   )
