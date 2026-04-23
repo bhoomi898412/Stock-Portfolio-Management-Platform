@@ -140,14 +140,6 @@ const Funds = () => {
             <p>Available cash</p>
             <p className="imp">₹{availableBalance.toFixed(2)}</p>
           </div>
-          <div className="data">
-            <p>Opening Balance</p>
-            <p className="imp">₹{openingBalance.toFixed(2)}</p>
-          </div> 
-          <div className="data">
-            <p>Payin</p>
-            <p className="imp">₹{payin.toFixed(2)}</p>
-          </div>
         </div>
       </div>
       <div className="col funds-side-card">
