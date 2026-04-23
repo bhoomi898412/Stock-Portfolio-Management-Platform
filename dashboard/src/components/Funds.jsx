@@ -142,11 +142,11 @@ const Funds = () => {
           </div>
           <div className="data">
             <p>Opening Balance</p>
-            <p>₹{openingBalance.toFixed(2)}</p>
+            <p className="imp">₹{openingBalance.toFixed(2)}</p>
           </div> 
           <div className="data">
             <p>Payin</p>
-            <p>₹{payin.toFixed(2)}</p>
+            <p className="imp">₹{payin.toFixed(2)}</p>
           </div>
         </div>
       </div>
